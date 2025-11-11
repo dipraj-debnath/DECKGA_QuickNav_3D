@@ -253,3 +253,23 @@ print(f"  Total Raw (pre-DEGA): {sum(raw_lengths):.2f}")
 print(f"  Total After DEGA    : {sum(dega_lengths):.2f}")
 print(f"  Total After QuickNav: {sum(final_lengths):.2f}")
 print("✅ All-in-one pipeline complete with obstacle detection reporting!")
+
+
+# ===== Save Output for ROS2 Visualization =====
+output_data = {
+    "optimized_paths": optimized_paths,       # paths after DEGA
+    "quicknav_paths": quicknav_paths,         # final paths after QuickNav
+    "obstacle_xyz": obstacle_xyz,
+    "obs_size": obs_size,
+    "detected_indices": all_detected_indices,
+    "raw_lengths": raw_lengths,
+    "dega_lengths": dega_lengths,
+    "final_lengths": final_lengths
+}
+
+output_filename = "deckga_quicknav_output.pkl"
+with open(output_filename, "wb") as f:
+    pickle.dump(output_data, f)
+
+print(f"\n💾 Results saved to '{output_filename}' for ROS2 visualization.")
+print("You can now load and visualize this data in your ROS2 node.")

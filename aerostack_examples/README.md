@@ -1,5 +1,3 @@
-# 🚀 Day 8 — Aerostack2 with Gazebo (Single & Multi-UAV Simulation)
-
 ## 🧩 Overview
 This lesson demonstrates how to set up and run **Aerostack2** examples using **Gazebo** and **RViz2** for both single-drone and multi-drone missions.
 
